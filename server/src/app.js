@@ -1,7 +1,8 @@
 import express from "express"
 import cors from 'cors'
 import cookieParser from "cookie-parser"
-
+import { getAllProducts } from "./controllers/product.controller.js"
+import { createProduct } from "./controllers/product.controller.js"
 const app = express()
 
 app.use(cors({
@@ -16,5 +17,9 @@ app.use(express.urlencoded({
 }))
 app.use(express.static("public"))
 app.use(cookieParser())
+
+//product routes
+app.post("/api/v1/product", createProduct)
+app.get("/api/v1/products", getAllProducts)
 
 export default app
