@@ -1,8 +1,9 @@
 import express from "express"
 import cors from 'cors'
 import cookieParser from "cookie-parser"
-import { getAllProducts } from "./controllers/product.controller.js"
-import { createProduct } from "./controllers/product.controller.js"
+// import { getAllProducts } from "./controllers/product.controller.js"
+// import { createProduct } from "./controllers/product.controller.js"
+import productroutes from "./routes/product.routes.js"
 const app = express()
 
 app.use(cors({
@@ -19,7 +20,6 @@ app.use(express.static("public"))
 app.use(cookieParser())
 
 //product routes
-app.post("/api/v1/product", createProduct)
-app.get("/api/v1/products", getAllProducts)
 
+app.use("/api/", productroutes)
 export default app

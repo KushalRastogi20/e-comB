@@ -25,6 +25,7 @@ export const createProduct = asyncHandler(async (req, res) => {
     price,
     category,
   });
+  console.log("new product created", newProduct);
   return res.status(201).json({
     success: true,
     message: "Product created successfully",
