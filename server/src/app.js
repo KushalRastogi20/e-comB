@@ -1,6 +1,8 @@
 import express from "express"
 import cors from 'cors'
 import cookieParser from "cookie-parser"
+import cloudinaryTestRoute from "./routes/cloudinaryTest.routes.js";
+
 // import { getAllProducts } from "./controllers/product.controller.js"
 // import { createProduct } from "./controllers/product.controller.js"
 import productroutes from "./routes/product.routes.js"
@@ -20,6 +22,7 @@ app.use(express.static("public"))
 app.use(cookieParser())
 
 //product routes
+app.use("/api/", cloudinaryTestRoute);  
 
 app.use("/api/", productroutes)
 export default app

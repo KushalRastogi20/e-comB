@@ -72,13 +72,16 @@ export const getAllProducts = asyncHandler(async (req, res) => {
 export const getSingleProduct = asyncHandler (async(req,res)=>{
   console.log("get single product req hit");
   const {id} = req.params;
-  if(!mongoose.Types.ObjectId.isValid(id)){
-    return res.status(400).json({
-      success:false,
-      message:"Invalid product id",
-    });
-  }
+  console.log("id",id);  
+  
+  // if(!mongoose.Types.ObjectId.isValid(id)){
+  //   return res.status(400).json({
+  //     success:false,
+  //     message:"Invalid product id",
+  //   });
+  // }
  const product = await Product.findById(id);
+ console.log("product",product);
   if(!product){
     return res.status(404).json({
       success:false,
